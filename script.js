@@ -103,6 +103,7 @@ function Next() {
     }
   });
 
+  
  
   if (timeLeft > 0 && finishedAllText) {
    
