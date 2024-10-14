@@ -1,0 +1,94 @@
+*{
+margin: 0;
+box-sizing: border-box;
+font-family: sans-serif;
+}
+
+body{
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+background-color: rgb(43, 0, 82);
+}
+
+.wrapper{
+          width: 770px;
+          padding: 35px;
+          background-color: white;
+          border-radius: 10px;
+}
+.wrapper .content-box{
+padding: 13px 20px 0;
+border-radius: 10px;
+border: 1px solid #ccc;
+}
+.typing-text p {
+        
+          font-size: 21px;
+          text-align: justify;
+          letter-spacing: 1px;
+          word-break:break-all;
+}
+.typing-text p span{
+          position: relative;
+}
+.typing-text p span.active{
+          color: purple;
+}
+
+.typing-text p span.active::before{
+          content: "";
+          position: absolute;
+          background: purple;
+          left: 0;
+          bottom: 0;
+          opacity: 0;
+          height: 2px;
+          width: 100%;
+          animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+.typing-text p span.correct{
+          color: rgb(20, 183, 20);
+}
+.typing-text p span.incorrect{
+          color: rgb(183, 20, 20);
+          background-color: rgb(253, 174, 174);
+          border-radius: 2px;
+          padding: 1px;
+}
+
+.content-box .content{
+          display: flex;
+          justify-content: space-between;
+          border-top: 1px solid #ccc;
+          padding: 12px 0;
+           margin-top: 17px;
+
+}
+.content .result-details{
+display: flex;
+justify-content: space-between;
+width: calc(100% - 140px);
+}
+.result-details li{
+          display: flex;
+          list-style: none;
+}
+
+.result-details li p {
+          font-size: 19px;
+}
+
+.result-details li span {
+          display: block;
+          font-size: 20px;
+          margin-left: 10px;
+}
