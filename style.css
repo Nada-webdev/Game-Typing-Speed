@@ -9,7 +9,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 min-height: 100vh;
-background-color: rgb(43, 0, 82);
+
 }
 
 
@@ -24,29 +24,33 @@ padding: 13px 20px 0;
 border-radius: 10px;
 border: 1px solid #ccc;
 }
+.wrapper .input-field{
+  z-index: -999;
+  opacity: 0;
+  position: absolute;
+}
 .typing-text p {
         
           font-size: 21px;
           text-align: justify;
-          letter-spacing: 1px;
-          word-break:break-all;
+          color: #a6a6a6;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
 }
 .typing-text p span{
           position: relative;
 }
-.typing-text p span.active{
-          color: purple;
-}
+
 
 .typing-text p span.active::before{
           content: "";
           position: absolute;
-          background: purple;
-          left: 0;
+          background: rgb(117, 117, 117);
+          left: 0px;
           bottom: 0;
           opacity: 0;
-          height: 2px;
-          width: 100%;
+          height: 20px;
+          width: 2px;
           animation: blink 1s step-end infinite;
 }
 
