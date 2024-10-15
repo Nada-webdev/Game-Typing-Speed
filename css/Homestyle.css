@@ -1,0 +1,143 @@
+body{
+          background-color: #062644;
+          overflow: hidden;
+         
+}
+.imgContainer{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-bottom: 30px;
+
+}
+.imgContainer img{
+          height: 170px;;
+}
+.roles {
+display: flex;
+justify-content: center;
+align-items: center;
+ 
+ 
+}
+
+.card {
+width: 500px;
+height: 250px;
+perspective: 1000px;
+
+}
+
+.card-inner {
+width: 100%;
+height: 100%;
+position: relative;
+transform-style: preserve-3d;
+transition: transform 0.999s;
+
+}
+
+.card:hover .card-inner {
+transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+padding: 0px 10px 0px 10px;
+}
+
+.card-front {
+background-color: #6e95c2;
+color: #fff;
+display: flex;
+align-items: center;
+border-radius: 10px;
+justify-content: center;
+font-size: 24px;
+font-weight:bold;
+transform: rotateY(0deg);
+}
+
+.card-back {
+background-color: #013050;
+color: #6e95c2;
+border-radius: 10px;
+font-size: 17px;
+margin: 0;
+line-height: 1.3; 
+transform: rotateY(180deg);
+font-family: sans-serif;
+}
+
+
+.loader {
+position: relative;
+
+overflow: hidden;
+border-right: 3px solid;
+width: 0px;
+animation: typewriter 2s steps(10)  infinite alternate , blink 0.5s steps(10) infinite;
+}
+
+.loader-text {
+font-size: 40px;
+font-weight: 700;
+background: linear-gradient(to right,#77e2ff, #155799);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+@keyframes typewriter {
+0% {
+width: 0px;
+}
+
+100% {
+width: 240px;
+}
+}
+
+@keyframes blink {
+0% {
+border-right-color: rgba(255,255,255,.75);
+;
+}
+
+100% {
+border-right-color: transparent;
+}
+}
+
+
+.button {
+padding: 0.6em 1em;
+border: 4px solid #6e95c2;
+transition: ease-in-out 0.3s;
+background-color: transparent;
+color: #fff;
+font-weight: bolder;
+font-size: 16px;
+
+
+}
+.btn-class a{
+text-decoration: none;
+}
+
+.button:hover {
+transform: scale(1.2) rotate(10deg);
+background-color: #6e95c2;
+color: white;
+}
+.btn-class{
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 23px;
+
+}
