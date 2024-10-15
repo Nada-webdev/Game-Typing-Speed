@@ -47,11 +47,16 @@ function inputFun() {
         char[index].classList.add("incorrect");
       }
       index++;
+      
     }
 
+    if(index === char.length){
+      clearInterval(Timing)
+    }
     mistakeTag.innerHTML = mistakes;
     char.forEach(span => span.classList.remove("active"));
     char[index]?.classList.add("active");
+
   } else {
     clearInterval(Timing);
     inputFiled.value = "";
@@ -82,15 +87,12 @@ function TryAgain() {
 }
 
 function Next() {
-  let finishedAllText = true;
-
+  let finishedAllText = false;
   const char = typingText.querySelectorAll("span");
-  char.forEach(span => {
-    if (!span.classList.contains("correct") &&
-      !span.classList.contains("incorrect")) {
-      finishedAllText = false;
-    }
-  });
+  
+  if(index === char.length){
+    finishedAllText = true
+  }
 
   if (timeLeft > 0 && finishedAllText) {
     timeLeft = timeMax = 60;
