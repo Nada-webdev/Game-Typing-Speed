@@ -32,10 +32,11 @@ border: 1px solid #ccc;
 .typing-text p {
         
           font-size: 21px;
-          text-align: justify;
+         text-wrap: balance;
           color: #a6a6a6;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
+          text-align: justify;
+          
+          
 }
 .typing-text p span{
           position: relative;
