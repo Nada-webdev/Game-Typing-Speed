@@ -1,5 +1,5 @@
 window.onload= congrat();
-   document.getElementById('confettiButton').addEventListener('click',()=>congrat());
+  //  document.getElementById('confettiButton').addEventListener('click',()=>congrat());
 
    function congrat (){
           const end = Date.now() + 3 * 1000; // 3 seconds

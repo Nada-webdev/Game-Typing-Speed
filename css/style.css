@@ -19,6 +19,19 @@ min-height: 100vh;
           background-color: white;
           border-radius: 10px;
 }
+.wrapper .shake{
+  display: inline-block;
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 0); }
+  50% { transform: translate(5px, 0); }
+  75% { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
 .wrapper .content-box{
 padding: 13px 20px 0;
 border-radius: 10px;
@@ -32,9 +45,10 @@ border: 1px solid #ccc;
 .typing-text p {
         
           font-size: 21px;
-         text-wrap: balance;
+         text-wrap:pretty;
           color: #a6a6a6;
           text-align: justify;
+          line-height: 1.4;
           
           
 }
@@ -68,7 +82,7 @@ border: 1px solid #ccc;
           color: rgb(183, 20, 20);
           background-color: rgb(253, 174, 174);
           border-radius: 2px;
-          padding: 1px;
+          padding: 0.5;
 }
 
 .content-box .content{

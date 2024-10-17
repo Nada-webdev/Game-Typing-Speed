@@ -5,23 +5,25 @@ const TimeTag = document.querySelector(".time span b");
 const TryAgainBtn = document.querySelector(".btn .again");
 const NextBtn = document.querySelector(".btn .next");
 const bodyBg = document.getElementsByTagName("body")[0]; 
+const Card = document.querySelector(".wrapper");
+
 let time,
     timeLeft = timeMax = 60,
-    index = i = mistakes = StartTimer = 0;
+    index = mistakes = StartTimer = 0;
 let Timing;
 
 function randomPragraph() {
   typingText.innerHTML = "";
+  let i = Math.floor(Math.random() * paragraphs.length);
   paragraphs[i].text.split("").forEach(letter => {
     let letterTag = `<span>${letter}</span>`;
     typingText.innerHTML += letterTag;
   });
   TimeTag.innerHTML = timeMax;
-  bodyBg.style.backgroundColor = paragraphs[i].RoleColor; 
-  i = (i + 1) % paragraphs.length; 
+  bodyBg.style.backgroundColor = paragraphs[i].RoleColor;
   typingText.querySelectorAll("span")[0].classList.add('active');
   typingText.addEventListener("click", () => inputFiled.focus());
-  document.addEventListener('keydown',()=>inputFiled.focus());
+  document.addEventListener('keydown', () => inputFiled.focus());
 }
 
 function inputFun() {
@@ -33,6 +35,7 @@ function inputFun() {
       Timing = setInterval(initTime, 1000);
       StartTimer = true;
     }
+    
     if (typedChar == null) {
       index--;
       if (char[index].classList.contains("incorrect")) {
@@ -45,18 +48,21 @@ function inputFun() {
       } else {
         mistakes++;
         char[index].classList.add("incorrect");
+        Card.classList.add("shake");
       }
       index++;
-      
+      setTimeout(() => Card.classList.remove("shake"), 500);
     }
 
-    if(index === char.length){
-      clearInterval(Timing)
-    }
     mistakeTag.innerHTML = mistakes;
     char.forEach(span => span.classList.remove("active"));
     char[index]?.classList.add("active");
 
+    
+    if (index === char.length) {
+      clearInterval(Timing);
+      finishedP(); 
+    }
   } else {
     clearInterval(Timing);
     inputFiled.value = "";
@@ -79,6 +85,7 @@ function TryAgain() {
   mistakeTag.innerHTML = mistakes;
   inputFiled.value = "";
   clearInterval(Timing);
+  randomPragraph();
 
   const char = typingText.querySelectorAll("span");
   char.forEach(span => {
@@ -86,29 +93,43 @@ function TryAgain() {
   });
 }
 
-function Next() {
-  let finishedAllText = false;
+function finishedP() {
   const char = typingText.querySelectorAll("span");
+  if (index === char.length) {
+    congrat(); 
+  }
+}
+
+function congrat() {
+  const end = Date.now() + 3 * 1000; // 3 secondes
+  const colors = ["#52fce3", "#3ce9fd", "#fff", "rgb(143, 2, 143)"];
   
-  if(index === char.length){
-    finishedAllText = true
-  }
+  const frame = () => {
+    if (Date.now() > end) return;
+    
+    confetti({
+      particleCount: 2,
+      angle: 60,
+      spread: 55,
+      startVelocity: 60,
+      origin: { x: 0, y: 0.5 },
+      colors: colors,
+    });
+    confetti({
+      particleCount: 2,
+      angle: 120,
+      spread: 55,
+      startVelocity: 60,
+      origin: { x: 1, y: 0.5 },
+      colors: colors,
+    });
 
-  if (timeLeft > 0 && finishedAllText) {
-    timeLeft = timeMax = 60;
-    index = mistakes = StartTimer = 0;
-    TimeTag.innerText = timeLeft;
-    mistakeTag.innerHTML = mistakes;
-    inputFiled.value = "";
-    clearInterval(Timing);
-
-    randomPragraph();
-  } else {
-    console.log("You must finish typing the text or time has run out.");
-  }
+    requestAnimationFrame(frame);
+  };
+  
+  frame();
 }
 
 randomPragraph();
 inputFiled.addEventListener('input', inputFun);
 TryAgainBtn.addEventListener('click', TryAgain);
-NextBtn.addEventListener('click', Next);

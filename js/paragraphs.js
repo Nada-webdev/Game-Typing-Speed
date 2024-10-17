@@ -8,7 +8,7 @@ const paragraphs = [
             RoleColor: "aqua"
           },
           {
-            text: "development (dev) department: concentrates on software and web development, teaching members coding skills, best practices, and project development using modern programming languages and frameworks.",
+            text: "development(dev) department:concentrates on software and web development, teaching members coding skills, best practices, and project development using modern programming languages and frameworks.",
             RoleColor: "rgb(9, 61, 141)"
           },
           {
