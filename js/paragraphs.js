@@ -12,7 +12,7 @@ const paragraphs = [
             RoleColor: "rgb(9, 61, 141)"
           },
           {
-            text: "game development department: specializes in creating video games, where members explore game design, 3d modeling, and programming using platforms like unity and unreal engine to build interactive gaming experiences.",
+            text: "game development section: specializes in creating video games, where members explore game design, 3d modeling, and programming using platforms like unity and unreal engine to build interactive gaming experiences.",
             RoleColor: "rgb(122, 5, 122)"
           }
         ];
