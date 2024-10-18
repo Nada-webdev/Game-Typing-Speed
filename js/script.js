@@ -6,7 +6,10 @@ const TryAgainBtn = document.querySelector(".btn .again");
 const NextBtn = document.querySelector(".btn .next");
 const bodyBg = document.getElementsByTagName("body")[0]; 
 const Card = document.querySelector(".wrapper");
-
+let speach=new SpeechSynthesisUtterance();
+speach.rate = 1.7;  
+speach.pitch = 1;     
+speach.volume = 0.7;
 let time,
     timeLeft = timeMax = 60,
     index = mistakes = StartTimer = 0;
@@ -26,10 +29,21 @@ function randomPragraph() {
   document.addEventListener('keydown', () => inputFiled.focus());
 }
 
+
 function inputFun() {
   const char = typingText.querySelectorAll("span");
   let typedChar = inputFiled.value.split("")[index];
+  let typedText = inputFiled.value 
 
+  if (typedChar === " " || typedChar === "." || typedChar === "," || index === char.length - 1) {
+    let lastWord = typedText.split(" ").slice(-2, -1)[0]; // Get the last word typed
+    if (lastWord) {
+      speach.text = lastWord; 
+      window.speechSynthesis.cancel(); // Stop any ongoing speech
+      window.speechSynthesis.speak(speach); // Speak the last word
+    }
+  }
+  
   if (timeLeft > 0) {
     if (!StartTimer) {
       Timing = setInterval(initTime, 1000);
