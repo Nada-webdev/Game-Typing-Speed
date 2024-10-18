@@ -88,6 +88,7 @@ border: 1px solid #ccc;
 .content-box .content{
           display: flex;
           justify-content: space-between;
+          align-items: center;
           border-top: 1px solid #ccc;
           padding: 12px 0;
            margin-top: 17px;
@@ -111,4 +112,17 @@ width: calc(100% - 140px);
           display: block;
           font-size: 20px;
           margin-left: 10px;
+}
+.again{
+  background-color: rgb(213, 234, 249);
+  color: black;
+  border-width: 0;
+  padding: 8px 13px;
+  border-radius: 3px;
+ 
+}
+.again:hover{
+  background-color: rgb(171, 219, 254);
+  color: black;
+  cursor: pointer;
 }
