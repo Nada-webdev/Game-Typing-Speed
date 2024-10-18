@@ -61,7 +61,7 @@ function inputFun() {
     
     if (index === char.length) {
       clearInterval(Timing);
-      finishedP(); 
+      congrat();
     }
   } else {
     clearInterval(Timing);
@@ -93,12 +93,7 @@ function TryAgain() {
   });
 }
 
-function finishedP() {
-  const char = typingText.querySelectorAll("span");
-  if (index === char.length) {
-    congrat(); 
-  }
-}
+
 
 function congrat() {
   const end = Date.now() + 3 * 1000; // 3 secondes

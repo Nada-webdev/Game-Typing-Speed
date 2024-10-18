@@ -19,7 +19,7 @@ min-height: 100vh;
           background-color: white;
           border-radius: 10px;
 }
-.wrapper .shake{
+.wrapper.shake{
   display: inline-block;
   animation: shake 0.5s ease-in-out infinite;
 }
